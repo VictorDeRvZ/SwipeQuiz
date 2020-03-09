@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.question.view.*
 
-public class QuestionAdapter(private val questions: List<Questions>) :
+public class QuestionAdapter(private val questions: List<Question>) :
     RecyclerView.Adapter<QuestionAdapter.ViewHolder>() {
 
     lateinit var context: Context
@@ -28,7 +28,7 @@ public class QuestionAdapter(private val questions: List<Questions>) :
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(question : Questions) {
+        fun bind(question : Question) {
 
             itemView.tvQuestion.text = question.question
         }
