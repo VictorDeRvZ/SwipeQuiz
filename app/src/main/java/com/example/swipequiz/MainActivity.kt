@@ -2,6 +2,7 @@ package com.example.swipequiz
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -30,5 +31,6 @@ class MainActivity : AppCompatActivity() {
         }
         questionAdapter.notifyDataSetChanged()
     }
+
 
 }
