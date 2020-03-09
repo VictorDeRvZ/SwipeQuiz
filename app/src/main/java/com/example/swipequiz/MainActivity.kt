@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import com.google.android.material.snackbar.Snackbar
 
+
 class MainActivity : AppCompatActivity() {
 
     private val questions = arrayListOf<Question>(
@@ -32,12 +33,14 @@ class MainActivity : AppCompatActivity() {
         rvQuestions.layoutManager =   LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
         rvQuestions.adapter = questionAdapter
         rvQuestions.addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
+        createItemTouchHelper().attachToRecyclerView(rvQuestions)
+
         // Populate the places list and notify the data set has changed.
        /* for (i in Question.indices) {
             rvQuestions.addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
             questions.add(Question(Question.QUESTIONS[i]))
         } */
-        questionAdapter.notifyDataSetChanged()
+      //  questionAdapter.notifyDataSetChanged()
     }
 
     private fun createItemTouchHelper(): ItemTouchHelper {
@@ -60,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                     ((direction == ItemTouchHelper.LEFT) and (!questions[position].rightAnswer))){
                     questions.removeAt(position)
                 } else {
-                    Snackbar.make(constraintLayout, "The question won't be removed", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(findViewById(R.id.ConstraintLayout), "The question won't be removed", Snackbar.LENGTH_SHORT).show()
                 }
 
                 questionAdapter.notifyDataSetChanged()
