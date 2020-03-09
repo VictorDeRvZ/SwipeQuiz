@@ -1,12 +1,11 @@
 package com.example.swipequiz
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_main.*
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,9 +23,10 @@ class MainActivity : AppCompatActivity() {
         rvQuestions.layoutManager =   LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
 
         rvQuestions.adapter = questionAdapter
-
+        rvQuestions.addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
         // Populate the places list and notify the data set has changed.
         for (i in Questions.QUESTIONS.indices) {
+            rvQuestions.addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
             questions.add(Questions(Questions.QUESTIONS[i]))
         }
         questionAdapter.notifyDataSetChanged()
